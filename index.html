@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const findMiniMaxSum = (arr) => {
+        let min = 0,
+          max = 0;
+
+        for (let j = arr.length - 1; j >= 0; j--) {
+          let sumArr = 0;
+          for (let i = 0; i < arr.length; i++) {
+            if (i == j) {
+              continue;
+            }
+            sumArr = sumArr + arr[i];
+          }
+          if (min == 0) {
+            min = sumArr;
+          }
+
+          if (sumArr > max) {
+            max = sumArr;
+          } else if (sumArr < min) {
+            min = sumArr;
+          }
+        }
+
+        console.log(min, max);
+      };
+
+      findMiniMaxSum([9, 7, 5, 3, 1]);
+    </script>
+  </body>
+</html>
